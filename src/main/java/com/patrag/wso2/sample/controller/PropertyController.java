@@ -1,22 +1,36 @@
 package com.patrag.wso2.sample.controller;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 import com.patrag.wso2.sample.model.Property;
-import com.patrag.wso2.sample.model.PropertyType;
 import com.patrag.wso2.sample.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/property")
 public class PropertyController {
 
   @Autowired
   private PropertyService propertyService;
 
-  @RequestMapping(value = "/property", method = GET)
+  @GetMapping
   public Property getProperty() {
     return propertyService.getProperty();
   }
+
+  @PostMapping
+  public ResponseEntity<?> add(@RequestBody Property property){
+    return ResponseEntity.noContent().build();
+  }
+
+  @PutMapping
+  public ResponseEntity<?> update(@RequestBody Property property){
+    return ResponseEntity.noContent().build();
+  }
+
+  @DeleteMapping
+  public ResponseEntity<?> delete(@RequestBody Property property){
+    return ResponseEntity.noContent().build();
+  }
+
 }
