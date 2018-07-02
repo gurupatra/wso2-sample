@@ -1,6 +1,6 @@
 package com.patrag.wso2.sample.controller;
 
-import com.patrag.wso2.sample.model.Property;
+import com.patrag.wso2.sample.spec.model.Property;
 import com.patrag.wso2.sample.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,13 @@
-package com.patrag.wso2.sample.model;
+package com.patrag.wso2.sample.spec.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import org.springframework.data.annotation.Id;
 
 public class Property {
 
+  @JsonIgnore
   private long id;
   private String name;
   private String addressLine;
