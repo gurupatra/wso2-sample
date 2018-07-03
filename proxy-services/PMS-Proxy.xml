@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="PMS-Proxy" startOnLoad="true" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <endpoint name="endpoint_urn_uuid_293edfe5-8172-4621-b257-7d7a21317b0d">
+            <address uri="http://localhost:8080/ws/properties.wsdl"/>
+        </endpoint>
+        <inSequence>
+            <log>
+                <property name="Message" value="Property Service Routing Request Received"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

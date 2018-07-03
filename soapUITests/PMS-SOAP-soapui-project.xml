@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ea5d7c42-cacd-4743-8198-ccf039574c4e" activeEnvironment="Default" name="PMS-SOAP" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d5965fed-98e1-4aa6-8102-864b4f641999" wsaVersion="NONE" name="PropertiesPortSoap11" type="wsdl" bindingName="{http://patrag.com/pms-ws2}PropertiesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/properties.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/properties.wsdl"><con:part><con:url>http://localhost:8080/ws/properties.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://patrag.com/pms-ws2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://patrag.com/pms-ws2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://patrag.com/pms-ws2">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://patrag.com/pms-ws2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getPropertyRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPropertyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="property" type="tns:property"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="property">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="address" type="xs:string"/>
+          <xs:element name="postcode" type="xs:string"/>
+          <xs:element name="price" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPropertyRequest">
+    <wsdl:part element="tns:getPropertyRequest" name="getPropertyRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPropertyResponse">
+    <wsdl:part element="tns:getPropertyResponse" name="getPropertyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PropertiesPort">
+    <wsdl:operation name="getProperty">
+      <wsdl:input message="tns:getPropertyRequest" name="getPropertyRequest"></wsdl:input>
+      <wsdl:output message="tns:getPropertyResponse" name="getPropertyResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PropertiesPortSoap11" type="tns:PropertiesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getProperty">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPropertyRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPropertyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PropertiesPortService">
+    <wsdl:port binding="tns:PropertiesPortSoap11" name="PropertiesPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="3f05d8c7-f60b-482f-9f74-081ded4cacbd" isOneWay="false" action="" name="getProperty" bindingOperationName="getProperty" type="Request-Response" outputName="getPropertyResponse" inputName="getPropertyRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c1c37785-b46f-4e95-a06c-b1ff2b15d0c8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pms="http://patrag.com/pms-ws2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pms:getPropertyRequest>
+         <pms:name>30 Newton Avenue</pms:name>
+      </pms:getPropertyRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://patrag.com/pms-ws2/PropertiesPort/getPropertyRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

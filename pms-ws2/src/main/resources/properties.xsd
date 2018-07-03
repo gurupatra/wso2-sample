@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://patrag.com/pms-ws2"
+  targetNamespace="http://patrag.com/pms-ws2" elementFormDefault="qualified">
+
+  <xs:element name="getPropertyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getPropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="property" type="tns:property"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="property">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+      <xs:element name="postcode" type="xs:string"/>
+      <xs:element name="price" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

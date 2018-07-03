@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/property-schema" xmlns:tns="http://www.example.org/property-schema" elementFormDefault="qualified">
+	<complexType name="propertyRequestType">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="postCode" type="string" />
+		</sequence>
+	</complexType>
+</schema>
